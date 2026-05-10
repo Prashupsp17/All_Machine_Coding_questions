@@ -13,6 +13,8 @@ import Retry from './Retry';
 import ImplementationOfUseFetchHook from './ImplementationOfUseFetchHook';
 import UserForm from './UserForm';
 import FileUpload from './FileUpload';
+// import Employee from './UseCallback/Employee.js';
+import Employee from './UseCallBack/Employee.js';
 
 export default function App() {
   return (
@@ -28,7 +30,8 @@ export default function App() {
       {/* <Retry /> */}
       {/* <ImplementationOfUseFetchHook /> */}
       {/* <UserForm /> */}
-      <FileUpload />
+      {/* <FileUpload /> */}
+      <Employee />
     </div>
   );
 }
