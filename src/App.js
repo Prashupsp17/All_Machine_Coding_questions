@@ -21,7 +21,11 @@ const Retry = lazy(() => import("./Retry"));
 const UserForm = lazy(() => import("./UserForm"));
 const FileUpload = lazy(() => import("./FileUpload"));
 const Employee = lazy(() => import("./UseCallBack/Employee.js") )
+const Table = lazy(() => import("./DynamicDataTable/Table"));
+const Notification = lazy(() => import("./NotificationSystem/Notification.js"))
+import useNotification from './NotificationSystem/useNotification';
 export default function App() {
+  const {NotificationComponent,triggerNotification} = useNotification("top-right");
   return (
     <div>
       {/* <Coditas /> */}
@@ -36,7 +40,30 @@ export default function App() {
       {/* <ImplementationOfUseFetchHook /> */}
       {/* <UserForm /> */}
       {/* <FileUpload /> */}
-      <Employee />
+      {/* <Table /> */}
+      {/* <Employee /> */}
+      <button onClick={() => triggerNotification({
+        type:"success",
+        message:"Payment Successful",
+        duration:3000
+      })}>Success</button>
+       <button onClick={() => triggerNotification({
+        type:"error",
+        message:"Payment Failed",
+        duration:3000
+      })}>Error</button>
+      <button onClick={() => triggerNotification({
+        type:"warning",
+        message:"Cannot process Payment",
+        duration:6000
+      })}>Warning</button>
+      <button onClick={() => triggerNotification({
+        type:"info",
+        message:"Payment process after 12 hours",
+        duration:10000
+      })}>Info</button>
+      { NotificationComponent}
+      {/* <Notification type="success"  message="Payment Successful" /> */}
     </div>
   );
 }

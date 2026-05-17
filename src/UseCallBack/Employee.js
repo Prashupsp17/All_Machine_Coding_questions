@@ -4,6 +4,7 @@ import EmployeeRow from "./EmployeeRow";
 const Employee =  () => {
 
     const [users,setUsers] = useState([]);
+    console.log(users);
      const [search, setSearch] = useState("");
      const [debouncedSearch,setDebouncedSearch] = useState("");
 
@@ -16,8 +17,15 @@ const Employee =  () => {
             }
 
             const data = await res.json();
-            console.log(data);
-            setUsers(data.users);
+            
+            const userData = data.users;
+            const tansformedData =  userData.map((item,i) => {
+                return{
+                    ...item,
+                    isActive:false
+                }
+            });
+            setUsers(tansformedData);
 
         }
         catch(err){
@@ -33,7 +41,6 @@ const Employee =  () => {
 
     useEffect(() => {
         const timer = setTimeout(() => {
-            console.log("Debounced Search:", search);
     
             setDebouncedSearch(search);
         }, 5000);
@@ -51,13 +58,35 @@ const Employee =  () => {
     return users.filter((item,i) => item.firstName.toLowerCase().includes(search.toLowerCase()));
   },[users,debouncedSearch]);
 
+  const handleStatus = ((id) => {
+    const updatedStatus = users.map((item) => {
+        if(item.id === id){
+            return{
+                ...item,
+                isActive:!item.isActive,
+                address:{
+                    ...item,
+                   city:"pune"
+                },
+                hair:{
+                    ...item,
+                    color:"greenish"
+                }
+            }
+        }
+        return item;
+    })
+    setUsers(updatedStatus);
+  });
+
     return(
         <div>
-            <h1>Employee LList</h1>
+            <h6>Employee LList</h6>
             <input value={search} onChange={(e) => setSearch(e.target.value)} />
             <EmployeeRow
             data ={filteredUsers} 
             handleDelete={handleDelete}
+            handleStatus={handleStatus}
              />
         </div>
     )
