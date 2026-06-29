@@ -9,7 +9,7 @@ const Retry = () => {
       }, ms);
     });
   };
-  // const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+  //  const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
   const retryApiCall = async (retries = 4) => {
     try {
