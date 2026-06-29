@@ -24,6 +24,8 @@ const Employee = lazy(() => import("./UseCallBack/Employee.js") )
 const Table = lazy(() => import("./DynamicDataTable/Table"));
 const Notification = lazy(() => import("./NotificationSystem/Notification.js"))
 import useNotification from './NotificationSystem/useNotification';
+const DynamicUserForm = lazy(() => import("./ConfigDrivenForms/DynamicUserForm.js"));
+const MultiLingual = lazy(() => import("./MultiLanguage/MultiLingual.js"))
 export default function App() {
   const {NotificationComponent,triggerNotification} = useNotification("top-right");
   return (
@@ -35,14 +37,15 @@ export default function App() {
       {/* <AutoComplete /> */}
       {/* <TrafficLight /> */}
       {/* <ModalPopUp /> */}
-      {/* <CountDownTimer /> */}
+      <CountDownTimer />
       {/* <Retry /> */}
       {/* <ImplementationOfUseFetchHook /> */}
       {/* <UserForm /> */}
       {/* <FileUpload /> */}
       {/* <Table /> */}
       {/* <Employee /> */}
-      <button onClick={() => triggerNotification({
+      {/* <DynamicUserForm /> */}
+      {/* <button onClick={() => triggerNotification({
         type:"success",
         message:"Payment Successful",
         duration:3000
@@ -62,8 +65,9 @@ export default function App() {
         message:"Payment process after 12 hours",
         duration:10000
       })}>Info</button>
-      { NotificationComponent}
+      { NotificationComponent} */}
       {/* <Notification type="success"  message="Payment Successful" /> */}
+      {/* <MultiLingual /> */}
     </div>
   );
 }

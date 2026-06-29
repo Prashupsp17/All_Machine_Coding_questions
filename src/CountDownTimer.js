@@ -2,9 +2,9 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 
 const CountDownTimer = () => {
-  const [hours, setHours] = useState(0);
-  const [seconds, setSeconds] = useState(0);
-  const [minutes, setMinutes] = useState(0);
+  const [hours, setHours] = useState("");
+  const [minutes, setMinutes] = useState("");
+  const [seconds, setSeconds] = useState("");
   const [isRunning, setIsRunning] = useState(false);
 
   const handleStart = () => {
@@ -14,27 +14,29 @@ const CountDownTimer = () => {
   const handleStop = () => {
     setIsRunning(false);
   };
+
   const handleReset = () => {
     setIsRunning(false);
+    setHours(0);
+    setMinutes(0);
+    setSeconds(0);
   };
 
   useEffect(() => {
     if (!isRunning) return;
-
-    let interval = null;
+    let interval;
 
     interval = setInterval(() => {
-      setSeconds((s) => s - 1);
-    }, 10);
+      setSeconds((prevSeconds) => prevSeconds - 1);
+    }, 100);
 
     return () => {
       clearInterval(interval);
     };
-  }, [seconds, isRunning]);
+  }, [isRunning]);
 
   useEffect(() => {
     if (!isRunning) return;
-
     if (seconds < 0) {
       if (minutes > 0) {
         setMinutes((m) => m - 1);
@@ -48,21 +50,37 @@ const CountDownTimer = () => {
         setSeconds(0);
       }
     }
-  }, [seconds, minutes, hours, isRunning]);
+  }, [seconds, hours, minutes, isRunning]);
+
   return (
-    <div>
+    <div className="App">
+      <h6>CountDown Timer</h6>
       <input
-        style={{ width: '30px', height: '30px' }}
+        maxLength="2"
+        style={{ width: "50px", height: "50px", textAlign: "center" }}
+        placeholder="HH"
+        min={0}
+        type="number"
         value={hours}
-        onChange={(e) => setHours(Number(e.target.value))}
+        onChange={(e) => {
+          let value = Number(e.target.value.slice(0, 2));
+          if (value < 0) return;
+          setHours(value);
+        }}
       />
       <input
-        style={{ width: '30px', height: '30px' }}
+        min={0}
+        maxLength="2"
+        style={{ width: "50px", height: "50px", textAlign: "center" }}
+        placeholder="MM"
+        type="number"
         value={minutes}
+        // type="number"
         onChange={(e) => {
-          let value = Number(e.target.value);
+          let value = Number(e.target.value.slice(0, 2));
+          if (value < 0) return;
           if (value > 60) {
-            setHours((h) => h + Math.floor(h / 60));
+            setHours((h) => h + Math.floor(value / 60));
             setMinutes(value % 60);
           } else {
             setMinutes(value);
@@ -70,13 +88,17 @@ const CountDownTimer = () => {
         }}
       />
       <input
-        style={{ width: '30px', height: '30px' }}
+        min={0}
+        maxLength="2"
+        style={{ width: "50px", height: "50px", textAlign: "center" }}
+        placeholder="SS"
+        type="number"
         value={seconds}
         onChange={(e) => {
-          let value = Number(e.target.value);
-
+          let value = Number(e.target.value.slice(0, 2));
+          if (value < 0) return;
           if (value > 60) {
-            setMinutes((m) => m + Math.floor(m / 60));
+            setMinutes((m) => m + Math.floor(value / 60));
             setSeconds(value % 60);
           } else {
             setSeconds(value);
@@ -84,12 +106,12 @@ const CountDownTimer = () => {
         }}
       />
       <br></br>
+      {String(hours).padStart(2, "0")}:{String(minutes).padStart(2, "0")}:
+      {String(seconds).padStart(2, "0")} <br></br>
       <button onClick={handleStart}>Start</button>
       <button onClick={handleStop}>Stop</button>
       <button onClick={handleReset}>Reset</button>
-      {String(hours).padStart(2, '0')}: {String(minutes).padStart(2, '0')}:
-      {String(seconds).padStart(2, '0')}
     </div>
   );
-};
+}
 export default CountDownTimer;
