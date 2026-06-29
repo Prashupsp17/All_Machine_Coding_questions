@@ -2,7 +2,14 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 
 const Retry = () => {
-  const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+  const delay = (ms) => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve();
+      }, ms);
+    });
+  };
+  // const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
   const retryApiCall = async (retries = 4) => {
     try {
