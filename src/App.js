@@ -26,6 +26,7 @@ const Notification = lazy(() => import("./NotificationSystem/Notification.js"))
 import useNotification from './NotificationSystem/useNotification';
 const DynamicUserForm = lazy(() => import("./ConfigDrivenForms/DynamicUserForm.js"));
 const MultiLingual = lazy(() => import("./MultiLanguage/MultiLingual.js"))
+const TabsComponent = lazy(() => import("./TabsComponent"));
 export default function App() {
   const {NotificationComponent,triggerNotification} = useNotification("top-right");
   return (
@@ -68,6 +69,7 @@ export default function App() {
       { NotificationComponent} */}
       {/* <Notification type="success"  message="Payment Successful" /> */}
       {/* <MultiLingual /> */}
+      <TabsComponent />
     </div>
   );
 }
