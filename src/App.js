@@ -27,6 +27,7 @@ import useNotification from './NotificationSystem/useNotification';
 const DynamicUserForm = lazy(() => import("./ConfigDrivenForms/DynamicUserForm.js"));
 const MultiLingual = lazy(() => import("./MultiLanguage/MultiLingual.js"))
 const TabsComponent = lazy(() => import("./TabsComponent"));
+const SearchComponent = lazy(() => import("./UseDebounce/SearchComponent.js"))
 export default function App() {
   const {NotificationComponent,triggerNotification} = useNotification("top-right");
   return (
@@ -38,7 +39,7 @@ export default function App() {
       {/* <AutoComplete /> */}
       {/* <TrafficLight /> */}
       {/* <ModalPopUp /> */}
-      <CountDownTimer />
+      {/* <CountDownTimer /> */}
       {/* <Retry /> */}
       {/* <ImplementationOfUseFetchHook /> */}
       {/* <UserForm /> */}
@@ -69,7 +70,8 @@ export default function App() {
       { NotificationComponent} */}
       {/* <Notification type="success"  message="Payment Successful" /> */}
       {/* <MultiLingual /> */}
-      <TabsComponent />
+      {/* <TabsComponent /> */}
+      <SearchComponent />
     </div>
   );
 }
