@@ -28,6 +28,8 @@ const DynamicUserForm = lazy(() => import("./ConfigDrivenForms/DynamicUserForm.j
 const MultiLingual = lazy(() => import("./MultiLanguage/MultiLingual.js"))
 const TabsComponent = lazy(() => import("./TabsComponent"));
 const SearchComponent = lazy(() => import("./UseDebounce/SearchComponent.js"))
+const MultiSelectDropdown = lazy(() => import('./MultiSelectDropdown.js'));
+const ChipsInput = lazy(() => import('./ChipsInput.js'));
 export default function App() {
   const {NotificationComponent,triggerNotification} = useNotification("top-right");
   return (
@@ -71,7 +73,9 @@ export default function App() {
       {/* <Notification type="success"  message="Payment Successful" /> */}
       {/* <MultiLingual /> */}
       {/* <TabsComponent /> */}
-      <SearchComponent />
+      {/* <SearchComponent /> */}
+      {/* <MultiSelectDropdown /> */}
+      <ChipsInput />
     </div>
   );
 }
