@@ -30,6 +30,7 @@ const TabsComponent = lazy(() => import("./TabsComponent"));
 const SearchComponent = lazy(() => import("./UseDebounce/SearchComponent.js"))
 const MultiSelectDropdown = lazy(() => import('./MultiSelectDropdown.js'));
 const ChipsInput = lazy(() => import('./ChipsInput.js'));
+const Cisco = lazy(() => import(`./Cisco.js`));
 export default function App() {
   const {NotificationComponent,triggerNotification} = useNotification("top-right");
   return (
@@ -75,7 +76,8 @@ export default function App() {
       {/* <TabsComponent /> */}
       {/* <SearchComponent /> */}
       {/* <MultiSelectDropdown /> */}
-      <ChipsInput />
+      {/* <ChipsInput /> */}
+      <Cisco />
     </div>
   );
 }
