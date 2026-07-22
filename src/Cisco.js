@@ -64,9 +64,9 @@ const Cisco = () => {
 
     const handleSelectedBoxOne = (checked,value) => {
         if(checked){
-            setSelectedBox1((prev) =>  [...prev,value]);
+            setSelectedBox1((prev) =>  [...prev,value.registrationId]);
         }else{
-            setSelectedBox1((prev) => prev.filter((item,i) => item.registrationId != value));
+            setSelectedBox1((prev) => prev.filter((item,i) => item != value.registrationId));
         }
         
         //   if(checked){
@@ -82,9 +82,9 @@ const Cisco = () => {
 
     const handleSelectedBoxTwo  = (checked,value) => {
         if(checked){
-            setSelectedBox2((prev) => [...prev,value]);
+            setSelectedBox2((prev) => [...prev,value.registrationId]);
         }else{
-            setSelectedBox2((prev) => prev.filter((item,i) => item.registrationId != value));
+            setSelectedBox2((prev) => prev.filter((item,i) => item != value.registrationId));
         }
     }
 
@@ -121,7 +121,7 @@ const Cisco = () => {
                  data.filter((item) => item.box === "box1").map((item,i) => {
                         return(
                             <div key={item.registrationId} style={{display:"flex", gap:"10px"}}>
-<input type="checkbox"  onChange={(e) => handleSelectedBoxOne(e.target.checked,item.registrationId)}/><div>{item.name}</div>
+<input type="checkbox"  onChange={(e) => handleSelectedBoxOne(e.target.checked,item)}/><div>{item.name}</div>
 </div>
                         )
                     })
@@ -137,7 +137,7 @@ const Cisco = () => {
                 data.filter((item) => item.box === "box2").map((item,i) => {
                         return(
                             <div key={item.registrationId}  style={{display:"flex", gap:"10px"}}>
-<input type="checkbox" onChange={(e) => handleSelectedBoxTwo(e.target.checked,item.registrationId)} /><div>{item?.name}</div>
+<input type="checkbox" onChange={(e) => handleSelectedBoxTwo(e.target.checked,item)} /><div>{item?.name}</div>
 </div>
                         )
                     })
