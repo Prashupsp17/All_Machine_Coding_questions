@@ -32,6 +32,7 @@ const MultiSelectDropdown = lazy(() => import('./MultiSelectDropdown.js'));
 const ChipsInput = lazy(() => import('./ChipsInput.js'));
 const Cisco = lazy(() => import(`./Cisco.js`));
 const PromisesPractise = lazy(() => import(`./PromisesPractise`));
+const ReusableDropdown = lazy(() => import(`./ReusableDropdownComponent/ReusableDropdown.js`));
 export default function App() {
   const {NotificationComponent,triggerNotification} = useNotification("top-right");
   return (
@@ -79,7 +80,8 @@ export default function App() {
       {/* <MultiSelectDropdown /> */}
       {/* <ChipsInput /> */}
       {/* <Cisco /> */}
-      <PromisesPractise />
+      {/* <PromisesPractise /> */}
+      <ReusableDropdown />
     </div>
   );
 }
