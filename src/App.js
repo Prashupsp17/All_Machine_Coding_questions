@@ -35,6 +35,7 @@ const PromisesPractise = lazy(() => import(`./PromisesPractise`));
 const ReusableDropdown = lazy(() => import(`./ReusableDropdownComponent/ReusableDropdown.js`));
 const Practise = lazy(() => import(`./Practise.js`));
 const StarRating= lazy(() => import(`./StarRating.js`));
+const Accordion = lazy(() => import(`./AccordionSingleAndMultiOpen`));
 export default function App() {
   const {NotificationComponent,triggerNotification} = useNotification("top-right");
   return (
@@ -84,8 +85,9 @@ export default function App() {
       {/* <Cisco /> */}
       {/* <PromisesPractise /> */}
       {/* <ReusableDropdown /> */}
-      <StarRating />
+      {/* <StarRating /> */}
       {/* <Practise /> */}
+      <Accordion />
     </div>
   );
 }

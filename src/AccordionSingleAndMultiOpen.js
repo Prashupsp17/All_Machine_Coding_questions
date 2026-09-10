@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Practise = () => {
+const AccordionSingleAndMultiOpen = () => {
   const accordionData = [
     {
       id: 1,
@@ -69,4 +69,4 @@ const handleAccordion = (id) => {
   );
 };
 
-export default Practise;
+export default AccordionSingleAndMultiOpen;
