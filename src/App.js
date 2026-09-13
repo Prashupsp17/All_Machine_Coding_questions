@@ -36,7 +36,8 @@ const ReusableDropdown = lazy(() => import(`./ReusableDropdownComponent/Reusable
 const Practise = lazy(() => import(`./Practise.js`));
 const StarRating= lazy(() => import(`./StarRating.js`));
 const Accordion = lazy(() => import(`./AccordionSingleAndMultiOpen`));
-const Pubmatic = lazy(() => import(`./PubMatic/QuestionOne.js`))
+const Pubmatic = lazy(() => import(`./PubMatic/QuestionOne.js`));
+const IBM = lazy(() => import(`./IBM/TableComponent.js`));
 export default function App() {
   const {NotificationComponent,triggerNotification} = useNotification("top-right");
   return (
@@ -89,7 +90,8 @@ export default function App() {
       {/* <StarRating /> */}
       {/* <Practise /> */}
       {/* <Accordion /> */}
-      {<Pubmatic />}
+      {/* {<Pubmatic />} */}
+      <IBM />
     </div>
   );
 }
