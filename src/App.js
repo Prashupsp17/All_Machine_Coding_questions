@@ -93,7 +93,7 @@ export default function App() {
       {/* <PromisesPractise /> */}
       {/* <ReusableDropdown /> */}
       {/* <StarRating /> */}
-      {/* <Practise /> */}
+      <Practise />
       {/* <Accordion /> */}
       {/* {<Pubmatic />} */}
       {/* <IBM /> */}
