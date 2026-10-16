@@ -42,7 +42,7 @@ const IBM = lazy(() => import(`./IBM/TableComponent.js`));
 const Form  = lazy(() => import(`./LTM/Form.js`));
 const Welcome = lazy(() => import(`./LTM/Welcome.js`));
 const Error = lazy(() => import(`./LTM/Error.js`));
-
+const FileExplorer = lazy(() => import(`./FileExplorer/FileExplorer.js`));
 export default function App() {
   const {NotificationComponent,triggerNotification} = useNotification("top-right");
   return (
@@ -93,18 +93,19 @@ export default function App() {
       {/* <PromisesPractise /> */}
       {/* <ReusableDropdown /> */}
       {/* <StarRating /> */}
-      <Practise />
+      {/* <Practise /> */}
       {/* <Accordion /> */}
       {/* {<Pubmatic />} */}
       {/* <IBM /> */}
-      <Routes>
+      <FileExplorer />
+      {/* <Routes>
         <Route path='/welcome' element={<Welcome />} />
         <Route path="/error" element={<Error />}  />
         <Route path="/form" element={<Form />} />
       </Routes>
       <Link to="/form">Form</Link>
       <Link to="/welcome">Welcome</Link>
-      <Link to="/error">Error</Link>
+      <Link to="/error">Error</Link> */}
     </div>
   );
 }
