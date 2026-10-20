@@ -43,6 +43,7 @@ const Form  = lazy(() => import(`./LTM/Form.js`));
 const Welcome = lazy(() => import(`./LTM/Welcome.js`));
 const Error = lazy(() => import(`./LTM/Error.js`));
 const FileExplorer = lazy(() => import(`./FileExplorer/FileExplorer.js`));
+const TodoList = lazy(() => import(`./TodoList.js`));
 export default function App() {
   const {NotificationComponent,triggerNotification} = useNotification("top-right");
   return (
@@ -97,7 +98,7 @@ export default function App() {
       {/* <Accordion /> */}
       {/* {<Pubmatic />} */}
       {/* <IBM /> */}
-      <FileExplorer />
+      {/* <FileExplorer /> */}
       {/* <Routes>
         <Route path='/welcome' element={<Welcome />} />
         <Route path="/error" element={<Error />}  />
@@ -106,6 +107,7 @@ export default function App() {
       <Link to="/form">Form</Link>
       <Link to="/welcome">Welcome</Link>
       <Link to="/error">Error</Link> */}
+      <TodoList />
     </div>
   );
 }
