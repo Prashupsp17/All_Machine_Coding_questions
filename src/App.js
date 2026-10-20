@@ -94,7 +94,7 @@ export default function App() {
       {/* <PromisesPractise /> */}
       {/* <ReusableDropdown /> */}
       {/* <StarRating /> */}
-      {/* <Practise /> */}
+      <Practise />
       {/* <Accordion /> */}
       {/* {<Pubmatic />} */}
       {/* <IBM /> */}
@@ -107,7 +107,7 @@ export default function App() {
       <Link to="/form">Form</Link>
       <Link to="/welcome">Welcome</Link>
       <Link to="/error">Error</Link> */}
-      <TodoList />
+      {/* <TodoList /> */}
     </div>
   );
 }
